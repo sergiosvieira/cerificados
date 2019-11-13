@@ -11,7 +11,11 @@ for i in data['Sheet1']:
     name = i[0]
     task = i[1]
     title = i[2]
+    d = i[3]
     filename = unidecode.unidecode(i[0]).replace(" ", "_").lower()
     output_file = open("_" + filename + ".tex", "a")
-    output_file.write(model.replace("@name", name).replace("@task", task).replace("@title", title)) 
+    str_output = model.replace("@name", name).replace(
+        "@task", task).replace("@title", title)
+    str_output = str_output.replace("@coursed", str(d))
+    output_file.write(str_output)
     output_file.close()

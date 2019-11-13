@@ -1,80 +1,60 @@
 \documentclass[landscape]{article}
-\usepackage{wallpaper}
-\usepackage{niceframe}
-\usepackage{xcolor}
+ \usepackage{niceframe}
+\usepackage{color}
 \usepackage{ulem}
+\usepackage{multicol}
+\usepackage{tikz}
 \usepackage{graphicx}
 \usepackage{geometry}
-\geometry{tmargin=.5cm,bmargin=.5cm,
-lmargin=.5cm,rmargin=.5cm}
-\usepackage{multicol}
-\setlength{\columnseprule}{0.4pt}
-\columnwidth=0.3\textwidth
+\usepackage{transparent}
+\usepackage[absolute,overlay]{textpos}
+\geometry{tmargin=.5cm,bmargin=.5cm,lmargin=1.5cm,rmargin=.5cm}
 
 \begin{document}
 
-%\TileWallPaper{4cm}{2cm}{tiling.png}
+\begin{tikzpicture}[remember picture,overlay]
+	\tikzset{inner sep=0pt,outer sep=0pt}
+	\node at (current page.center) {\includegraphics[width=\paperwidth, height=\paperheight]{certificado}};
+\end{tikzpicture} 
 
 \centering
-\scalebox{3}{\color{white!30!white!60}
-\begin{minipage}{.33\textwidth}
-\font\border=umrandb
-\generalframe
-{\border \char113} % up left
-{\border \char109} % up
-{\border \char112} % up right
-{\border \char108} % left 
-{\border \char110} % right
-{\border \char114} % lower left
-{\border \char111} % bottom
-{\border \char115} % lower right
-{\centering
 
-%\begin{minipage}{.9\textwidth}
-%\centering
-%\includegraphics[height=1.1cm]{escudozz.pdf}
-%\end{minipage}
-%\vspace{-8mm}
-
-\curlyframe[.9\columnwidth]{
-
-\textcolor{red!10!black!90}
-{\small Instituto Federal de Educação, Ciência e Tecnologia do Ceará}\\
-
-\vspace{3mm}
-
-\textcolor{green!10!black!90}{
-\tiny Certificamos que \uline{\textcolor{black}
-{@name}} ministrou a Atividade @task, intitulada @title no Universo IFCE 2019, ofertado pelo Instituto Federal de Educação, Ciência e Tecnologia do Ceara, IFCE – Campus Itapipoca, em 21/12/2018.}
-
-%\smallskip
-
-%\textcolor{red!30!black!90}
-%{\textit{Certificate of}}
-
-%\textcolor{black}{\large \textsc{Biggest Sleeper Class}}
-
-%\vspace{2mm}
-
-%\tiny
-%to: \uline{\textcolor{black}
-%{Mr. Dormouse Overwintering Marmot}}
-
-%(Master degree)
-
-\vspace{4mm}
-
-{\color{blue!40!black}
-\scalebox{.7}{
-\begin{tabular}{ccccc}
-%\cline{1-1} 
-\cline{3-3}
-%\cline{5-5}
-\\
-  & &  Diretor Geral & &  \\
- & &  & &  \\ 
-\end{tabular}
-}}}}
-\end{minipage}
+\scalebox{3.2}{
+	\color{white} %bordas do template
+	\begin{minipage}{0.31\textwidth}
+        \vspace*{10mm}
+        \textcolor{green!10!black!90}
+        {
+            \transparent{1}
+            \begin{center}
+                CERTIFICADO
+            \end{center}
+        }
+	
+		\vspace*{1mm}
+		
+		{\centering
+            \transparent{0}
+            \curlyframe[1\columnwidth]{
+                \textcolor{green!10!black!90}
+                {
+                    \transparent{1}
+                    \tiny Certificamos que \uline{\textcolor{black}{@name}} ministrou a Atividade @task, intitulada @title no Universo IFCE 2019, ofertado pelo Instituto Federal de Educação, Ciência e Tecnologia do Ceará, IFCE – Campus Itapipoca, em @coursedate.
+                }
+			
+%                 \vspace*{5mm}
+            }
+        }
+        \begin{textblock*}{15cm}(10cm,20cm)
+%             \transparent{1}
+            \color{blue!40!black}
+            \scalebox{2.5}{
+                \begin{tabular}{ccccc}
+                    \cline{1-5}
+                    &   & Diretor Geral &   &   
+                \end{tabular}
+            }
+        \end{textblock*}
+	\end{minipage}
 }
 \end{document}
