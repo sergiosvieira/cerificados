@@ -1,7 +1,8 @@
 import pyexcel_ods3 as pods
 import json
 import unidecode
-#unaccented_string = unidecode.unidecode(accented_string)
+import datetime
+
 input_file = open("modelo.tex", "r")
 model = input_file.read()
 data = pods.get_data("fonte.ods")
@@ -16,6 +17,7 @@ for i in data['Sheet1']:
     output_file = open("_" + filename + ".tex", "a")
     str_output = model.replace("@name", name).replace(
         "@task", task).replace("@title", title)
-    str_output = str_output.replace("@coursed", str(d))
+    formated_date = str(d)
+    str_output = str_output.replace("@coursed", formated_date)
     output_file.write(str_output)
     output_file.close()
