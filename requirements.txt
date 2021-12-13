@@ -1,6 +1,6 @@
 ezodf==0.3.2
 lml==0.0.9
-lxml==4.4.1
+lxml==4.6.5
 pyexcel==0.5.15
 pyexcel-ezodf==0.3.4
 pyexcel-io==0.5.20
